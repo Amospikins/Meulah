@@ -1,2 +1,2 @@
-# Meulah-Pikins
+# Meulah
 An Open Source PHP Framework i am playing around with. Built from TraversyMVC Lessons
