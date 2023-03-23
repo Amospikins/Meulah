@@ -3,13 +3,13 @@
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', '');
+define('DB_NAME', 'project');
 
 // App Root
 define('APPROOT', dirname(dirname(__FILE__)));
 
 //URL Root
-define('URLROOT', '_Your_Site_URL_');
+define('URLROOT', 'http://localhost/whalewavers');
 
 //Site Name
-define('SITENAME', '_Your_SiteName_');
+define('SITENAME', 'Meulah framework');

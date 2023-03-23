@@ -1,7 +1,10 @@
 <?php
 class Pages extends Controller{
     public function __construct(){
-     
+        /*if login before load, uncomment this */
+      /*  if(!isset($_SESSION['user_id'])){
+            redirect('users/login');
+        }*/
     }
 
     public function index(){
@@ -9,13 +12,9 @@ class Pages extends Controller{
             'title' => 'Beulah Pikins MVC'
         ];
         $this->view('pages/index', $data);
+        /* or  redirect('registrations/register');*/
 
     }
     
-    public function about(){
-        $data =[
-            'title' => 'About Us'
-        ];
-        $this->view('pages/about', $data);
-    }
+ 
 }
