@@ -1,15 +1,16 @@
 <?php
 //DB Params
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'project');
+const DB_HOST = 'localhost';
+const DB_USER = 'root';
+const DB_PASS = '';
+const DB_NAME = 'project';
 
 // App Root
 define('APPROOT', dirname(dirname(__FILE__)));
 
-//URL Root
-define('URLROOT', 'http://localhost/whalewavers');
+//URL Root (change /meulah to your project directory e.g. /myprojectdirectory)
+const URLROOT = 'http://localhost/meulah';
+
 
 //Site Name
-define('SITENAME', 'Meulah framework');
+const SITENAME = 'Meulah framework';
