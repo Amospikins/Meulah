@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 // Flash message helper
 function flash($name = '', $message = '', $class = 'alert alert-success'){
@@ -25,11 +25,8 @@ function flash($name = '', $message = '', $class = 'alert alert-success'){
   }
 }
 
-
-    function isLoggedIn(){
-        if(isset($_SESSION['user_id'])){
-          return true;
-        }else{
-          return false;
-        }
-    }
+ // Check if User is Logged In
+ function isLoggedIn(): bool
+  {
+    return isset($_SESSION[SESSION_USER_KEY]);
+  }

@@ -9,15 +9,14 @@
     // Add User / Register
     public function register($data){
       // Prepare Query
-      $this->db->query('INSERT INTO users (fullname, email, phone, password, image) 
-      VALUES (:fullname, :email, :phone, :password, :image)');
+      $this->db->query('INSERT INTO users (uuid, username, email, password) 
+      VALUES (:uuid, :username, :email, :password)');
 
       // Bind Values
-      $this->db->bind(':fullname', $data['name']);
+      $this->db->bind(':uuid', $data['uuid']);
+      $this->db->bind(':username', $data['username']);
       $this->db->bind(':email', $data['email']);
-      $this->db->bind(':phone', $data['phone']);
       $this->db->bind(':password', $data['password']);
-      $this->db->bind(':image', $data['profileImage']);
       
       //Execute
       if($this->db->execute()){
@@ -26,13 +25,30 @@
         return false;
       }
     }
-    public function updateUser($data){
+
+    public function updatePassword($data){
       // Prepare Query
-      $this->db->query('UPDATE users SET password=:password WHERE id = :id');
+      $this->db->query('UPDATE users SET password = :password WHERE id = :id');
 
       // Bind Values
       $this->db->bind(':id', $data['id']);
-      $this->db->bind(':password', $data['newpassword']);
+      $this->db->bind(':password', $data['password']);
+      
+      //Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public function updateProfileImage($data){
+      // Prepare Query
+      $this->db->query('UPDATE users SET passport = :passport WHERE id = :id');
+
+      // Bind Values
+      $this->db->bind(':id', $data['id']);
+      $this->db->bind(':passport', $data['file']);
       
       //Execute
       if($this->db->execute()){
@@ -46,6 +62,19 @@
     public function findUserByEmail($email){
       $this->db->query("SELECT * FROM users WHERE email = :email");
       $this->db->bind(':email', $email);
+
+      $row = $this->db->single();
+
+      //Check Rows
+      if($this->db->rowCount() > 0){
+        return true;
+      } else {
+        return false;
+      }
+    }
+    public function findUserByAccountNumber($accountno){
+      $this->db->query("SELECT * FROM users WHERE accountno = :accountno");
+      $this->db->bind(':accountno', $accountno);
 
       $row = $this->db->single();
 

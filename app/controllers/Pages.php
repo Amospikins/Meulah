@@ -1,20 +1,38 @@
 <?php
-class Pages extends Controller{
-    public function __construct(){
-        /*if login before load, uncomment this */
-      /*  if(!isset($_SESSION['user_id'])){
-            redirect('users/login');
-        }*/
+class Pages extends Controller
+{
+
+   
+    public function __construct()
+    {
+       
     }
 
-    public function index(){
-        $data = [
-            'title' => 'Beulah Pikins MVC'
-        ];
-        $this->view('pages/index', $data);
-        /* or  redirect('registrations/register');*/
-
+    public function index()
+    {
+        // Load View
+        $this->view('home');
     }
-    
- 
+
+    public function about()
+    {
+        // Load View
+        $this->view('about');
+    }
+    public function contact()
+    {
+        // Load View
+        $this->view('contact');
+    }
+
+    public function terms()
+    {
+        // Load View
+        $this->view('terms');
+    }
+    public function privacy()
+    {
+        // Load View
+        $this->view('privacy');
+    }
 }
